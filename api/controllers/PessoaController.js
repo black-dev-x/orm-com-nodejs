@@ -63,11 +63,23 @@ const pegaUmaMatricula = async (req, res) => {
   res.json(matricula)
 }
 
+const criaUmaMatricula = async (req, res) => {
+  try {
+    const idEstudante = req.params.idEstudante
+    const novaMatricula = { ...req.body, idEstudante }
+    const novaMatriculaSalva = await database.Matriculas.create(novaMatricula)
+    res.json(novaMatriculaSalva)
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
 module.exports = {
   pegaTodasAsPessoas,
   pegaUmaPessoa,
   criaUmaPessoa,
   atualizaPessoa,
   apagaPessoa,
-  pegaUmaMatricula
+  pegaUmaMatricula,
+  criaUmaMatricula
 }

@@ -8,5 +8,6 @@ routerPessoas.post('/pessoas', PessoaControllers.criaUmaPessoa)
 routerPessoas.put('/pessoas/:id', PessoaControllers.atualizaPessoa)
 routerPessoas.delete('/pessoas/:id', PessoaControllers.apagaPessoa)
 routerPessoas.get('/pessoas/:idEstudante/matricula/:idMatricula', PessoaControllers.pegaUmaMatricula)
+routerPessoas.post('/pessoas/:idEstudante/matricula', PessoaControllers.criaUmaMatricula)
 
 module.exports = routerPessoas
