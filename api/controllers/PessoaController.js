@@ -50,10 +50,24 @@ const apagaPessoa = async (req, res) => {
     res.status(500).json(e)
   }
 }
+
+const pegaUmaMatricula = async (req, res) => {
+  const idEstudante = req.params.idEstudante
+  const idMatricula = req.params.idMatricula
+  const matricula = await database.Matriculas.findOne({
+    where: {
+      id: idMatricula,
+      idEstudante
+    }
+  })
+  res.json(matricula)
+}
+
 module.exports = {
   pegaTodasAsPessoas,
   pegaUmaPessoa,
   criaUmaPessoa,
   atualizaPessoa,
-  apagaPessoa
+  apagaPessoa,
+  pegaUmaMatricula
 }

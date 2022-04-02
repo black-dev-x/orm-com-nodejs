@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'idDocente'
       })
       Pessoa.hasMany(models.Matriculas, {
-        foreignKey: 'idMatricula'
+        foreignKey: 'idEstudante'
       })
     }
   }
