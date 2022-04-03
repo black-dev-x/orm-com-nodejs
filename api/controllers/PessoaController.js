@@ -74,6 +74,16 @@ const criaUmaMatricula = async (req, res) => {
   }
 }
 
+const restauraPessoa = async (req, res) => {
+  try {
+    const id = req.params.id
+    await database.Pessoa.restore({ where: { id } })
+    res.end()
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
 module.exports = {
   pegaTodasAsPessoas,
   pegaUmaPessoa,
@@ -81,5 +91,6 @@ module.exports = {
   atualizaPessoa,
   apagaPessoa,
   pegaUmaMatricula,
-  criaUmaMatricula
+  criaUmaMatricula,
+  restauraPessoa
 }
